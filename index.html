@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arthur — C++ Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #1e1e1e;
+      color: #ffffff;
+      padding: 1.5rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #80bfff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .tech, .projects {
+      margin-top: 2rem;
+    }
+
+    .emoji {
+      margin-right: 0.4em;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.9em;
+      color: #aaaaaa;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👋 Hi, I'm Arthur</h1>
+    <p>
+    💻 C/C++ Software Developer and Team Lead in low-latency, high-frequency trading.<br>
+    📈 I focus on performance and architecture.<br>
+    🛠 Writing code since the early 2000s – mainly in C++, but also Python and Node.js when needed.<br>
+    🧠 Into system design, optimization, and exploring latency/memory/cache details.<br>
+    📊 I believe good code is not just clean — it moves money.</p>
+
+    <p>📨 <a href="https://github.com/arthur-cpp" target="_blank">GitHub</a> · <a href="https://linkedin.com/in/arthur-cpp" target="_blank">LinkedIn</a><br>
+    📄 CV: available on request.</p>
+
+    <div class="tech">
+      <h2>🛠 Tech Stack</h2>
+      <p>
+        C/C++, Python, Node.js, MSVC, CLion, VSCode, Git, Subversion, Redmine, Windows, Linux, MySQL, PostgreSQL
+      </p>
+    </div>
+
+    <div class="projects">
+      <h2>🐶 Side Projects</h2>
+      <p>Crypto & Web3 hacks</p>
+      <ul>
+        <li>🏆 1st place — <a href="https://github.com/arthur-cpp/bnb-zero2hero-bootcamp" target="_blank">BNB Chain Zero2Hero bootcamp</a></li>
+        <li>🥉 3rd place — <a href="https://github.com/arthur-cpp/bnb-zero2hero-hackathon" target="_blank">EncodeClub hackathon</a></li>
+      </ul>
+    </div>
+
+    <div class="projects">
+      <h2>📝 Blog</h2>
+      <p>I use <a href="https://gist.github.com/arthur-cpp" target="_blank">GitHub Gists</a> as a lightweight blog — mostly technical notes, experiments, and ideas.</p>
+      <ul id="gist-list">
+        <li>Loading gists...</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      &copy; Arthur. Built with ❤️ and low latency.
+    </div>
+  </div>
+
+  <script>
+    fetch("https://api.github.com/users/arthur-cpp/gists")
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("gist-list");
+        list.innerHTML = "";
+        data.slice(0, 5).forEach(gist => {
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = gist.html_url;
+          link.target = "_blank";
+          link.textContent = gist.description || Object.keys(gist.files)[0];
+          li.appendChild(link);
+          list.appendChild(li);
+        });
+      })
+      .catch(() => {
+        document.getElementById("gist-list").innerHTML = "<li>Could not load gists.</li>";
+      });
+  </script>
+</body>
+</html>
