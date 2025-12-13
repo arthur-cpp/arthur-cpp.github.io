@@ -91,7 +91,7 @@
 
     <div class="projects">
       <h2>📝 Blog</h2>
-      <p>I use <a href="https://gist.github.com/arthur-cpp" target="_blank">GitHub Gists</a> as a lightweight blog — mostly technical notes, experiments, and ideas.</p>
+      <p>I use <a href="https://gist.github.com/arthur-cpp" target="_blank">GitHub Gists</a> as a lightweight blog — mostly thoughts and technical notes.</p>
       <ul id="gist-list">
         <li>Loading gists...</li>
       </ul>
@@ -108,7 +108,7 @@
       .then(data => {
         const list = document.getElementById("gist-list");
         list.innerHTML = "";
-        data.slice(0, 5).forEach(gist => {
+        data.slice(0, 10).forEach(gist => {
           const li = document.createElement("li");
           const link = document.createElement("a");
           link.href = gist.html_url;
